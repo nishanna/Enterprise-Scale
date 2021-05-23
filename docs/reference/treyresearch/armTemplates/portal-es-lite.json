@@ -474,10 +474,10 @@
                     {
                         "name": "esAddressVpnOrEr",
                         "type": "Microsoft.Common.TextBox",
-                        "label": "Subnet for VPN/Express route",
+                        "label": "Subnet for VPN",
                         "toolTip": "Provide address prefix in CIDR notation (e.g 10.100.1.0/24)",
                         "defaultValue": "10.100.1.0/24",
-                        "visible": "[or(equals(steps('esConnectivityGoalState').esErGw, 'Yes'), equals(steps('esConnectivityGoalState').esVpnGw, 'Yes'))]",
+                        "visible": "[equals(steps('esConnectivityGoalState').esVpnGw, 'Yes')]",
                         "constraints": {
                             "required": true,
                             "validationMessage": "The subnet network's address space, specified as one address prefixes in CIDR notation (e.g. 192.168.1.0/24)"
@@ -802,7 +802,7 @@
             "vpnGwType": "[steps('esConnectivityGoalState').esVpnGwType]",
             "subnetMaskForGw": "[steps('esConnectivityGoalState').esAddressVpnOrEr]",
             "subnetMaskForAzFw": "[steps('esConnectivityGoalState').esAddressFw]",
-            "enableErGw": "[steps('esConnectivityGoalState').esErGw]",
+
             "enableVpnGw": "[steps('esConnectivityGoalState').esVpnGw]",
             "enableHub": "[steps('esConnectivityGoalState').esHub]",
             "enableAzFw": "[steps('esConnectivityGoalState').esAzFw]",
