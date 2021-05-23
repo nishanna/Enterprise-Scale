@@ -316,7 +316,7 @@
                     {
                         "name": "esAsc",
                         "type": "Microsoft.Common.OptionsGroup",
-                        "label": "Deploy Azure Security Center and enable security monitoring for your platform and resources",
+                        "label": "Deploy Azure Security Center hoochies and enable security monitoring for your platform and resources",
                         "defaultValue": "Yes, Azure Defender On (recommended)",
                         "toolTip": "If 'Yes' is selected when also adding a subscription for management, ARM will deploy resources and enable them for continous compliance",
                         "constraints": {
