@@ -820,7 +820,7 @@
             "enableServiceMap": "[steps('esGoalState').esServiceMap]",
             "enableSqlAssessment": "[steps('esGoalState').esSqlAssessment]",
             "enableAsc": "[steps('esGoalState').esAsc]",            
-            "enableSecuritySolution": "[steps('esGoalState').esSecuritySolution]",
+
             "location": "[steps('esConnectivityGoalState').esNwLocation]",            
             "vpnGwType": "[steps('esConnectivityGoalState').esVpnGwType]",
             "subnetMaskForGw": "[steps('esConnectivityGoalState').esAddressVpnOrEr]",
