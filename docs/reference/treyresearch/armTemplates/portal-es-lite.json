@@ -337,6 +337,7 @@
                         },
 						"visible": "[equals(steps('esGoalState').esLogAnalytics, 'Yes')]"
                     },                 
+/*
                     {
                         "name": "esSecuritySolution",
                         "type": "Microsoft.Common.OptionsGroup",
@@ -357,6 +358,7 @@
                         },
 						"visible": "[equals(steps('esGoalState').esLogAnalytics, 'Yes')]"
                     }					
+*/                    
                 ]
             },
             {
