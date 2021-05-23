@@ -329,10 +329,6 @@
                                     "label": "Yes, Azure Defender Off",
                                     "value": "Free"
                                 }
-//                                {
-  //                                  "label": "No",
-    //                                "value": "No"
-      //                          } 
                             ]
                         },
 						"visible": "[equals(steps('esGoalState').esLogAnalytics, 'Yes')]"
