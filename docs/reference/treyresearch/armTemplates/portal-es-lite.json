@@ -337,28 +337,6 @@
                         },
 						"visible": "[equals(steps('esGoalState').esLogAnalytics, 'Yes')]"
                     },                 
-/*
-                    {
-                        "name": "esSecuritySolution",
-                        "type": "Microsoft.Common.OptionsGroup",
-                        "label": "Deploy Azure Sentinel",
-                        "defaultValue": "No",
-                        "toolTip": "If 'Yes' is selected when also adding a subscription for management, ARM will deploy resources and enable them for continous compliance",
-                        "constraints": {
-                            "allowedValues": [
-                                {
-                                    "label": "Yes",
-                                    "value": "Yes"
-                                },
-                                {
-                                    "label": "No",
-                                    "value": "No"
-                                }
-                            ]
-                        },
-						"visible": "[equals(steps('esGoalState').esLogAnalytics, 'Yes')]"
-                    }					
-*/                    
                 ]
             },
             {
