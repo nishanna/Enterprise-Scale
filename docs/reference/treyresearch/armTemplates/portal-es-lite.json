@@ -433,7 +433,7 @@
                     {
                         "name": "esVpnGw",
                         "type": "Microsoft.Common.OptionsGroup",
-                        "label": "Deploy one VPN Gateway",
+                        "label": "Deploy VPN Gateway",
                         "defaultValue": "No",
                         "visible": "[equals(steps('esConnectivityGoalState').esHub, 'Yes')]",
                         "toolTip": "If 'Yes' is selected when also adding a subscription for connectivity, ARM will deploy VPN gateway",
@@ -505,78 +505,7 @@
                             "uri": "https://github.com/Azure/Enterprise-Scale/blob/main/docs/Deploy/ES-schema.md"
                         }
                     },
-                    {
-                        "name": "onlineText",
-                        "type": "Microsoft.Common.TextBlock",
-                        "visible": true,
-                        "options": {
-                            "text": "Select the subscriptions you want to use to host your Online landing zones.",
-                            "link": {
-                                "label": "Learn more",
-                                "uri": "https://docs.microsoft.com/azure/azure-monitor/insights/solutions"
-                            }
-                        }
-                    },
-                    {
-                        "name": "lzOnlineSubsApi",
-                        "type": "Microsoft.Solutions.ArmApiControl",
-                        "request": {
-                            "method": "GET",
-                            "path": "subscriptions?api-version=2020-01-01"
-                        }
-                    },
-                    {
-                        "name": "esOnlineLzSub",
-                        "type": "Microsoft.Common.DropDown",
-                        "label": "Online landing zone subscriptions (optional)",
-                        "toolTip": "",
-                        "multiselect": true,
-                        "selectAll": true,
-                        "filter": true,
-                        "filterPlaceholder": "Filter items ...",
-                        "multiLine": true,
-                        "visible": true,
-                        "constraints": {
-                            "allowedValues": "[map(steps('lzGoalState').lzOnlineSubsApi.value, (sub) => parse(concat('{\"label\":\"', sub.displayName, '\",\"description\":\"', sub.subscriptionId, '\",\"value\":\"', toLower(sub.subscriptionId), '\"}')) )]",
-                            "required": false
-                        }
-                    },
-                    {
-                        "name": "corpText",
-                        "type": "Microsoft.Common.TextBlock",
-                        "visible": true,
-                        "options": {
-                            "text": "Select the subscriptions you want to use to host your Corp landing zones.",
-                            "link": {
-                                "label": "Learn more",
-                                "uri": "https://docs.microsoft.com/azure/azure-monitor/insights/solutions"
-                            }
-                        }
-                    },
-                    {
-                        "name": "lzCorpSubsApi",
-                        "type": "Microsoft.Solutions.ArmApiControl",
-                        "request": {
-                            "method": "GET",
-                            "path": "subscriptions?api-version=2020-01-01"
-                        }
-                    },
-                    {
-                        "name": "esCorpLzSub",
-                        "type": "Microsoft.Common.DropDown",
-                        "label": "Corp landing zone subscriptions (optional)",
-                        "toolTip": "",
-                        "multiselect": true,
-                        "selectAll": true,
-                        "filter": true,
-                        "filterPlaceholder": "Filter items ...",
-                        "multiLine": true,
-                        "visible": true,
-                        "constraints": {
-                            "allowedValues": "[map(steps('lzGoalState').lzCorpSubsApi.value, (sub) => parse(concat('{\"label\":\"', sub.displayName, '\",\"description\":\"', sub.subscriptionId, '\",\"value\":\"', toLower(sub.subscriptionId), '\"}')) )]",
-                            "required": false
-                        }
-                    },                     
+
                     {
                         "name": "azMonText",
                         "type": "Microsoft.Common.TextBlock",
@@ -776,8 +705,7 @@
             "enableHub": "[steps('esConnectivityGoalState').esHub]",
 
             "addressPrefix": "[steps('esConnectivityGoalState').esAddressHub]",
-            "onlineLzSubscriptionId": "[if(not(contains(steps('lzGoalState').esOnlineLzSub,if(not(empty(steps('esGoalState').esMgmtSub)), steps('esGoalState').esMgmtSub, if(not(empty(steps('esConnectivityGoalState').esConnectivitySub)), steps('esConnectivityGoalState').esConnectivitySub, '')))),steps('lzGoalState').esOnlineLzSub,'')]",
-            "corpLzSubscriptionId": "[if(not(contains(steps('lzGoalState').esCorpLzSub,if(not(empty(steps('esGoalState').esMgmtSub)), steps('esGoalState').esMgmtSub, if(not(empty(steps('esConnectivityGoalState').esConnectivitySub)), steps('esConnectivityGoalState').esConnectivitySub, '')))),steps('lzGoalState').esCorpLzSub,'')]",
+
             "enableSqlAudit": "[steps('lzGoalState').esSqlAudit]",
             "enableSqlEncryption": "[steps('lzGoalState').esSqlEncryption]",
             "enableVmBackup": "[steps('lzGoalState').esAzBackup]",
