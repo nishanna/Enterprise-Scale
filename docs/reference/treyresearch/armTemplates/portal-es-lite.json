@@ -770,7 +770,7 @@
             "location": "[steps('esConnectivityGoalState').esNwLocation]",            
             "vpnGwType": "[steps('esConnectivityGoalState').esVpnGwType]",
             "subnetMaskForGw": "[steps('esConnectivityGoalState').esAddressVpnOrEr]",
-            "subnetMaskForAzFw": "[steps('esConnectivityGoalState').esAddressFw]",
+
 
             "enableVpnGw": "[steps('esConnectivityGoalState').esVpnGw]",
             "enableHub": "[steps('esConnectivityGoalState').esHub]",
