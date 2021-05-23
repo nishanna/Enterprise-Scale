@@ -470,26 +470,7 @@
                             ]
                         }
                     },
-                    {
-                        "name": "esErGw",
-                        "type": "Microsoft.Common.OptionsGroup",
-                        "label": "Deploy ExpressRoute Gateway",
-                        "defaultValue": "No",
-                        "visible": "[equals(steps('esConnectivityGoalState').esHub, 'Yes')]",
-                        "toolTip": "If 'Yes' is selected when also adding a subscription for connectivity, ARM will deploy Express Route gateway",
-                        "constraints": {
-                            "allowedValues": [
-                                {
-                                    "label": "Yes",
-                                    "value": "Yes"
-                                },
-                                {
-                                    "label": "No",
-                                    "value": "No"
-                                }
-                            ]
-                        }
-                    },
+
                     {
                         "name": "esAddressVpnOrEr",
                         "type": "Microsoft.Common.TextBox",
