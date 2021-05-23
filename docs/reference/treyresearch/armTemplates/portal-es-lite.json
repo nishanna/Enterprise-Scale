@@ -501,7 +501,7 @@
                         "visible": true,
                         "options": {
                             "icon": "Info",
-                            "text": "Remove this? You can optionally provide subscriptions for your first 'Online' and 'Corp' landing zones and assign recommended policies that will ensure workloads will be secure, monitored, and protected according to best practices.",
+                            "text": "Assign recommended policies that will ensure workloads will be secure, monitored, and protected according to best practices.",
                             "uri": "https://github.com/Azure/Enterprise-Scale/blob/main/docs/Deploy/ES-schema.md"
                         }
                     },
