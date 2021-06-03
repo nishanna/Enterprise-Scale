@@ -255,6 +255,14 @@
             "type": "string",
             "defaultValue": ""
         },
+        "addressPrefix1": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "addressPrefix2": {
+            "type": "string",
+            "defaultValue": ""
+        },
         "enableVpnGw": {
             "type": "string",
             "defaultValue": "No",
@@ -711,6 +719,12 @@
                     },
                     "addressPrefix": {
                         "value": "[parameters('addressPrefix')]"
+                    },
+                    "addressPrefix1": {
+                        "value": "[parameters('addressPrefix1')]"
+                    },
+                    "addressPrefix2": {
+                        "value": "[parameters('addressPrefix2')]"
                     },
                     "enableVpnGw": {
                         "value": "[parameters('enableVpnGw')]"
