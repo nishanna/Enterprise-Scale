@@ -404,11 +404,35 @@
                         "type": "Microsoft.Common.TextBox",
                         "label": "Address space (required for virtual network hub)",
                         "toolTip": "Provide address prefix in CIDR notation (e.g 10.100.0.0/16)",
-                        "defaultValue": "10.100.0.0/16",
+                        "defaultValue": "172.31.0.0/20",
                         "visible": "[equals(steps('esConnectivityGoalState').esHub, 'Yes')]",
                         "constraints": {
                             "required": true,
                             "validationMessage": "The virtual hubs network's address space, specified as one address prefixes in CIDR notation (e.g. 192.168.1.0/24)"
+                        }
+                    },
+                    {
+                        "name": "esAddressSpoke1",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "Address space (required for virtual network spoke 1)",
+                        "toolTip": "Provide address prefix in CIDR notation (e.g 10.100.0.0/16)",
+                        "defaultValue": "172.31.16.0/20",
+                        "visible": "[equals(steps('esConnectivityGoalState').esHub, 'Yes')]",
+                        "constraints": {
+                            "required": true,
+                            "validationMessage": "The virtual spoke network's address space, specified as one address prefixes in CIDR notation (e.g. 192.168.1.0/24)"
+                        }
+                    },
+                    {
+                        "name": "esAddressSpoke2",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "Address space (required for virtual network spoke 2)",
+                        "toolTip": "Provide address prefix in CIDR notation (e.g 10.100.0.0/16)",
+                        "defaultValue": "172.31.32.0/20",
+                        "visible": "[equals(steps('esConnectivityGoalState').esHub, 'Yes')]",
+                        "constraints": {
+                            "required": true,
+                            "validationMessage": "The virtual spoke network's address space, specified as one address prefixes in CIDR notation (e.g. 192.168.1.0/24)"
                         }
                     },
 					{
@@ -476,7 +500,7 @@
                         "type": "Microsoft.Common.TextBox",
                         "label": "Subnet for VPN",
                         "toolTip": "Provide address prefix in CIDR notation (e.g 10.100.1.0/24)",
-                        "defaultValue": "10.100.1.0/24",
+                        "defaultValue": "172.31.0.0/27",
                         "visible": "[equals(steps('esConnectivityGoalState').esHub, 'Yes')]",
                         "constraints": {
                             "required": true,
@@ -705,6 +729,8 @@
             "enableHub": "[steps('esConnectivityGoalState').esHub]",
 
             "addressPrefix": "[steps('esConnectivityGoalState').esAddressHub]",
+            "addressPrefix1": "[steps('esConnectivityGoalState').esAddressSpoke1]",
+            "addressPrefix2": "[steps('esConnectivityGoalState').esAddressSpoke2]",
 
             "enableSqlAudit": "[steps('lzGoalState').esSqlAudit]",
             "enableSqlEncryption": "[steps('lzGoalState').esSqlEncryption]",
