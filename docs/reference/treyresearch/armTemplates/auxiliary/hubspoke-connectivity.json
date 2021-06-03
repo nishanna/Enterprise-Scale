@@ -16,6 +16,20 @@
                 "description": "Address prefix of the HUB"
             }
         },
+        "addressPrefix1": {
+            "type": "string",
+            "metadata": {
+                "displayName": "addressPrefix1",
+                "description": "Address prefix of Spoke 1"
+            }
+        },
+        "addressPrefix2": {
+            "type": "string",
+            "metadata": {
+                "displayName": "addressPrefix2",
+                "description": "Address prefix of Spoke 2"
+            }
+        },
         "location": {
             "type": "string",
             "metadata": {
@@ -83,6 +97,8 @@
         "erGwName": "[concat(parameters('topLevelManagementGroupPrefix'), '-ergw-', parameters('location'))]",
         "rgName": "[concat(parameters('topLevelManagementGroupPrefix'), '-connectivity')]",
         "hubName": "[concat(parameters('topLevelManagementGroupPrefix'), '-hub-', parameters('location'))]",
+        "spoke1Name": "[concat(parameters('topLevelManagementGroupPrefix'), '-spoke1-', parameters('location'))]",
+        "spoke2Name": "[concat(parameters('topLevelManagementGroupPrefix'), '-spoke2-', parameters('location'))]",
         "azVpnGwIpName": "[concat(variables('vpngwname'), '-pip')]",
         "azVpnGwSubnetId": "[concat('/subscriptions/', parameters('connectivitySubscriptionId'), '/resourceGroups/', variables('rgName'),'/providers/Microsoft.Network/virtualNetworks/', variables('hubname'), '/subnets/GatewaySubnet')]",
         "azFwName": "[concat(parameters('topLevelManagementGroupPrefix'), '-fw-', parameters('location'))]",
@@ -167,6 +183,32 @@
                                                                           if(
                                                                               not(
                                                                                   empty(parameters('subnetMaskForAzFw'))), variables('fwSubnet'), json('[]')))]"
+                                            }
+                                        },
+                                        {
+                                            "name": "[variables('spoke1Name')]",
+                                            "type": "Microsoft.Network/virtualNetworks",
+                                            "apiVersion": "2020-04-01",
+                                            "location": "[parameters('location')]",
+                                            "properties": {
+                                                "addressSpace": {
+                                                    "addressPrefixes": [
+                                                        "[parameters('addressPrefix1')]"
+                                                    ]
+                                                },
+                                            }
+                                        },
+                                        {
+                                            "name": "[variables('spoke2Name')]",
+                                            "type": "Microsoft.Network/virtualNetworks",
+                                            "apiVersion": "2020-04-01",
+                                            "location": "[parameters('location')]",
+                                            "properties": {
+                                                "addressSpace": {
+                                                    "addressPrefixes": [
+                                                        "[parameters('addressPrefix2')]"
+                                                    ]
+                                                },
                                             }
                                         },
                                         {
