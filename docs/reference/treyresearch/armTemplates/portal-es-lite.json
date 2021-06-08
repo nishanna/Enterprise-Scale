@@ -534,7 +534,7 @@
                         "type": "Microsoft.Common.TextBlock",
                         "visible": true,
                         "options": {
-                            "text": "Select the subscriptions you want to use to host your Online landing zones.",
+                            "text": "Select the subscriptions you want to use to host your Prod landing zones.",
                             "link": {
                                 "label": "Learn more",
                                 "uri": "https://docs.microsoft.com/azure/azure-monitor/insights/solutions"
@@ -552,7 +552,7 @@
                     {
                         "name": "esOnlineLzSub",
                         "type": "Microsoft.Common.DropDown",
-                        "label": "Online landing zone subscriptions (optional)",
+                        "label": "Prod landing zone subscriptions (optional)",
                         "toolTip": "",
                         "multiselect": true,
                         "selectAll": true,
@@ -570,7 +570,7 @@
                         "type": "Microsoft.Common.TextBlock",
                         "visible": true,
                         "options": {
-                            "text": "Select the subscriptions you want to use to host your Corp landing zones.",
+                            "text": "Select the subscriptions you want to use to host your Non-prod landing zones.",
                             "link": {
                                 "label": "Learn more",
                                 "uri": "https://docs.microsoft.com/azure/azure-monitor/insights/solutions"
@@ -588,7 +588,7 @@
                     {
                         "name": "esCorpLzSub",
                         "type": "Microsoft.Common.DropDown",
-                        "label": "Corp landing zone subscriptions (optional)",
+                        "label": "Non-prod landing zone subscriptions (optional)",
                         "toolTip": "",
                         "multiselect": true,
                         "selectAll": true,
