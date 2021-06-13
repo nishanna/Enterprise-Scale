@@ -314,6 +314,14 @@
         "subnetMaskForGw": {
             "type": "string",
             "defaultValue": ""
+        },
+        "subnetMaskForDMZ": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "subnetMaskForIdent": {
+            "type": "string",
+            "defaultValue": ""
         }
     },
     "variables": {
@@ -746,6 +754,12 @@
                     },
                     "subnetMaskForGw": {
                         "value": "[parameters('subnetMaskForGw')]"
+                    },
+                    "subnetMaskForDMZ": {
+                        "value": "[parameters('subnetMaskForDMZ')]"
+                    },
+                    "subnetMaskForIdent": {
+                        "value": "[parameters('subnetMaskForIdent')]"
                     }
                 }
             }
