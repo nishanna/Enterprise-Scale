@@ -506,6 +506,30 @@
                             "required": true,
                             "validationMessage": "The subnet network's address space, specified as one address prefixes in CIDR notation (e.g. 192.168.1.0/24)"
                         }
+                    },
+                    {
+                        "name": "esAddressDMZ",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "Subnet for DMZ subnet",
+                        "toolTip": "Provide address prefix in CIDR notation (e.g 10.100.1.0/24)",
+                        "defaultValue": "172.31.1.0/24",
+                        "visible": "[equals(steps('esConnectivityGoalState').esHub, 'Yes')]",
+                        "constraints": {
+                            "required": true,
+                            "validationMessage": "The subnet network's address space, specified as one address prefixes in CIDR notation (e.g. 192.168.1.0/24)"
+                        }
+                    },
+                    {
+                        "name": "esAddressIdent",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "Subnet for Identity subnet",
+                        "toolTip": "Provide address prefix in CIDR notation (e.g 10.100.1.0/24)",
+                        "defaultValue": "172.31.2.0/24",
+                        "visible": "[equals(steps('esConnectivityGoalState').esHub, 'Yes')]",
+                        "constraints": {
+                            "required": true,
+                            "validationMessage": "The subnet network's address space, specified as one address prefixes in CIDR notation (e.g. 192.168.1.0/24)"
+                        }
                     }
 
                 ]
@@ -795,6 +819,8 @@
             "vpnGwType": "[steps('esConnectivityGoalState').esVpnGwType]",
             "subnetMaskForGw": "[steps('esConnectivityGoalState').esAddressVpnOrEr]",
 
+            "subnetMaskForDMZ": "[steps('esConnectivityGoalState').esAddressDMZ]",
+            "subnetMaskForIdent": "[steps('esConnectivityGoalState').esAddressIdent]",
 
             "enableVpnGw": "[steps('esConnectivityGoalState').esVpnGw]",
             "enableHub": "[steps('esConnectivityGoalState').esHub]",
