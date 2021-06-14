@@ -189,26 +189,30 @@
                                     "parameters": {},
                                     "resources": [
                                         {
-                                            "name": "[variables('hubName')]",
                                             "type": "Microsoft.Network/virtualNetworks",
-                                            "apiVersion": "2020-04-01",
+                                            "apiVersion": "2020-05-01",
+                                            "name": "[variables('hubName')]",
                                             "location": "[parameters('location')]",
                                             "properties": {
                                                 "addressSpace": {
                                                     "addressPrefixes": [
                                                         "[parameters('addressPrefix')]"
                                                     ]
-                                                },
-                                                "subnets": "[
-                                                             union(
-                                                                  if(
-                                                                      not(
-                                                                          empty(parameters('subnetMaskForGw'))), variables('gwSubnet'), json('[]')), 
-                                                                          if(
-                                                                              not(
-                                                                                  empty(parameters('subnetMaskForAzFw'))), variables('fwSubnet'), json('[]')))]"
+                                                }  
                                             },
                                             "resources": [
+                                                {
+                                                    "type": "subnets",
+                                                    "apiVersion": "2020-05-01",
+                                                    "location": "[parameters('location')]",
+                                                    "name": "[variables('gwSubnet')]",
+                                                    "dependsOn": [
+                                                      "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'))]"
+                                                    ],
+                                                    "properties": {
+                                                      "addressPrefix": "[parameters('subnetMaskForGw')]"
+                                                    }
+                                                },
                                                 {
                                                   "type": "subnets",
                                                   "apiVersion": "2020-05-01",
