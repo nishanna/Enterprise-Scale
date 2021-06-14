@@ -249,7 +249,7 @@
                                                     "addressPrefixes": [
                                                         "[parameters('addressPrefix1')]"
                                                     ]
-                                                },
+                                                }
                                             }
                                         },
                                         {
@@ -262,7 +262,7 @@
                                                     "addressPrefixes": [
                                                         "[parameters('addressPrefix2')]"
                                                     ]
-                                                },
+                                                }
                                             }
                                         },
                                         {
