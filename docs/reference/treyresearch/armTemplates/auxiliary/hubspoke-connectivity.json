@@ -189,8 +189,8 @@
                                     "parameters": {},
                                     "resources": [
                                         {
+                                            "apiVersion": "2015-05-01-preview",
                                             "type": "Microsoft.Network/virtualNetworks",
-                                            "apiVersion": "2020-05-01",
                                             "name": "[variables('hubName')]",
                                             "location": "[parameters('location')]",
                                             "properties": {
