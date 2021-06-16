@@ -189,9 +189,9 @@
                                     "parameters": {},
                                     "resources": [
                                         {
-                                            "apiVersion": "2015-05-01-preview",
-                                            "type": "Microsoft.Network/virtualNetworks",
                                             "name": "[variables('hubName')]",
+                                            "type": "Microsoft.Network/virtualNetworks",
+                                            "apiVersion": "2020-04-01",
                                             "location": "[parameters('location')]",
                                             "properties": {
                                                 "addressSpace": {
@@ -205,19 +205,8 @@
                                                       "properties": {
                                                         "addressPrefix": "[parameters('subnetMaskForGw')]"
                                                       }
-                                                    },
-                                                    {
-                                                      "name": "[variables('DMZSubnet')]",
-                                                      "properties": {
-                                                        "addressPrefix": "[parameters('subnetMaskForDMZ')]"
-                                                      }
-                                                    },
-                                                    {
-                                                      "name": "[variables('IdentSubnet')]",
-                                                      "properties": {
-                                                        "addressPrefix": "[parameters('subnetMaskForIdent')]"
-                                                      }
                                                     }
+                                                   
                                                   ] 
                                             }
                                             
