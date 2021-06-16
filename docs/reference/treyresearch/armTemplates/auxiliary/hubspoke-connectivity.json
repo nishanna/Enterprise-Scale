@@ -198,27 +198,8 @@
                                                     "addressPrefixes": [
                                                         "[parameters('addressPrefix')]"
                                                     ]
-                                                }, 
-                                                "subnets": [
-                                                    {
-                                                      "name": "[variables('gwSubnet')]",
-                                                      "properties": {
-                                                        "addressPrefix": "[parameters('subnetMaskForGw')]"
-                                                      }
-                                                    },
-                                                    {
-                                                      "name": "[variables('DMZSubnet')]",
-                                                      "properties": {
-                                                        "addressPrefix": "[parameters('subnetMaskForDMZ')]"
-                                                      }
-                                                    },
-                                                    {
-                                                      "name": "[variables('IdentSubnet')]",
-                                                      "properties": {
-                                                        "addressPrefix": "[parameters('subnetMaskForIdent')]"
-                                                      }
-                                                    }
-                                                  ] 
+                                                } 
+                                               
                                             }
                                             
                                         },
