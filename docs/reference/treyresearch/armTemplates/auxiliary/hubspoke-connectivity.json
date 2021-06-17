@@ -198,48 +198,31 @@
                                                     "addressPrefixes": [
                                                         "[parameters('addressPrefix')]"
                                                     ]
-
-                                            },
-                                            "resources": [
-                                                {
-                                                    "type": "subnets",
-                                                    "apiVersion": "2020-05-01",
-                                                    "location": "[parameters('location')]",
-                                                    "name": "[variables('gwSubnet')]",
-                                                    "dependsOn": [
-                                                      "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'))]"
-                                                    ],
-                                                    "properties": {
-                                                      "addressPrefix": "[parameters('subnetMaskForGw')]"
+                                                },
+                                                "subnets": [
+                                                    {
+                                                      "name": "[variables('gwSubnet')]",
+                                                      "properties": {
+                                                        "addressPrefix": "[parameters('subnetMaskForGw')]"
+                                                      }
+                                                    },
+                                                    {
+                                                      "name": "[variables('DMZSubnet')]",
+                                                      "properties": {
+                                                        "addressPrefix": "[parameters('subnetMaskForDMZ')]"
+                                                      }
+                                                    },
+                                                    {
+                                                      "name": "[variables('IdentSubnet')]",
+                                                      "properties": {
+                                                        "addressPrefix": "[parameters('subnetMaskForIdent')]"
+                                                      }
                                                     }
-                                                },
-                                                {
-                                                  "type": "subnets",
-                                                  "apiVersion": "2020-05-01",
-                                                  "location": "[parameters('location')]",
-                                                  "name": "[variables('DMZSubnet')]",
-                                                  "dependsOn": [
-                                                    "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'))]"
-                                                  ],
-                                                  "properties": {
-                                                    "addressPrefix": "[parameters('subnetMaskForDMZ')]"
-                                                  }
-                                                },
-                                                {
-                                                  "type": "subnets",
-                                                  "apiVersion": "2020-05-01",
-                                                  "location": "[parameters('location')]",
-                                                  "name": "[variables('IdentSubnet')]",
-                                                  "dependsOn": [
-                                                    "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'))]"
-                                                  ],
-                                                  "properties": {
-                                                    "addressPrefix": "[parameters('subnetMaskForIdent')]"
-                                                  }
-                                                }
-                                              ]
+                                                  ]
                                             }
+                                            
                                         },
+                                        
                                         {
                                             "name": "[variables('spoke1Name')]",
                                             "type": "Microsoft.Network/virtualNetworks",
