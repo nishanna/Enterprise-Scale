@@ -285,7 +285,10 @@
                                             "dependsOn": [
                                                 "[concat('Microsoft.Network/publicIPAddresses/', variables('azVpnGwIpName'))]",
                                                 "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'))]",
-                                                "GatewaySubnet"
+                                                "GatewaySubnet",
+                                                "DMZSubnet",
+                                                "IdentSubnet"
+
                                             ],
                                             "properties": {
                                                 "gatewayType": "Vpn",
