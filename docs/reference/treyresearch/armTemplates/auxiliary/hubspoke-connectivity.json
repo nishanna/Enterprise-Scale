@@ -284,8 +284,8 @@
                                             "location": "[parameters('location')]",
                                             "dependsOn": [
                                                 "[concat('Microsoft.Network/publicIPAddresses/', variables('azVpnGwIpName'))]",
-                                                "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'))]",
-                                                "[resourceId('Microsoft.Network/virtualNetworks/subnets',variables('hubName'),'GatewaySubnet')]"
+                                                "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'))]"
+                                                
                                             ],
                                             "properties": {
                                                 "gatewayType": "Vpn",
