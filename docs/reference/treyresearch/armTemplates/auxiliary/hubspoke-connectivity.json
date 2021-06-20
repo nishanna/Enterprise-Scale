@@ -213,8 +213,32 @@
                                                     "properties": {
                                                       "addressPrefix": "[parameters('subnetMaskForGw')]"
                                                     }
+                                                },
+                                                {
+                                                  "type": "subnets",
+                                                  "apiVersion": "2020-05-01",
+                                                  "location": "[parameters('location')]",
+                                                  "name": "DMZSubnet",
+                                                  "dependsOn": [
+                                                    "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'))]"
+                                                  ],
+                                                  "properties": {
+                                                    "addressPrefix": "[parameters('subnetMaskForDMZ')]"
+                                                  }
+                                                },
+                                                {
+                                                  "type": "subnets",
+                                                  "apiVersion": "2020-05-01",
+                                                  "location": "[parameters('location')]",
+                                                  "name": "IdentSubnet",
+                                                  "dependsOn": [
+                                                    "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'))]"
+                                                  ],
+                                                  "properties": {
+                                                    "addressPrefix": "[parameters('subnetMaskForIdent')]"
+                                                  }
                                                 }
-                                            ]
+                                              ]
                                         },
                                         {
                                             "name": "[variables('spoke1Name')]",
