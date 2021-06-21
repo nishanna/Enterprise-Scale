@@ -98,15 +98,31 @@
         "subnetMaskForIdent": {
             "type": "string",
             "defaultValue": ""
+        },
+        "subnetMaskForProd1": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "subnetMaskForProd2": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "subnetMaskForNonprod1": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "subnetMaskForNonprod2": {
+            "type": "string",
+            "defaultValue": ""
         }
     },
     "variables": {
         "vpngwname": "[concat(parameters('topLevelManagementGroupPrefix'), '-vpngw-', parameters('location'))]",
         "erGwName": "[concat(parameters('topLevelManagementGroupPrefix'), '-ergw-', parameters('location'))]",
         "rgName": "[concat(parameters('topLevelManagementGroupPrefix'), '-connectivity')]",
-        "hubName": "[concat(parameters('topLevelManagementGroupPrefix'), '-hub-', parameters('location'))]",
-        "spoke1Name": "[concat(parameters('topLevelManagementGroupPrefix'), '-spoke1-', parameters('location'))]",
-        "spoke2Name": "[concat(parameters('topLevelManagementGroupPrefix'), '-spoke2-', parameters('location'))]",
+        "hubName": "[concat(parameters('topLevelManagementGroupPrefix'), '-shared-services-', parameters('location'))]",
+        "spoke1Name": "[concat(parameters('topLevelManagementGroupPrefix'), '-prod-', parameters('location'))]",
+        "spoke2Name": "[concat(parameters('topLevelManagementGroupPrefix'), '-non-prod-', parameters('location'))]",
         "azVpnGwIpName": "[concat(variables('vpngwname'), '-pip')]",
         "azVpnGwSubnetId": "[concat('/subscriptions/', parameters('connectivitySubscriptionId'), '/resourceGroups/', variables('rgName'),'/providers/Microsoft.Network/virtualNetworks/', variables('hubname'), '/subnets/GatewaySubnet')]",
         "azFwName": "[concat(parameters('topLevelManagementGroupPrefix'), '-fw-', parameters('location'))]",
@@ -139,6 +155,38 @@
                 "name": "IdentSubnet",
                 "properties": {
                     "addressPrefix": "[parameters('subnetMaskForIdent')]"
+                }
+            }
+        ],
+        "Prod1Subnet": [
+            {
+                "name": "Prod1Subnet",
+                "properties": {
+                    "addressPrefix": "[parameters('subnetMaskForProd1')]"
+                }
+            }
+        ],
+        "Prod2Subnet": [
+            {
+                "name": "Prod2Subnet",
+                "properties": {
+                    "addressPrefix": "[parameters('subnetMaskForProd2')]"
+                }
+            }
+        ],
+        "NonProd1Subnet": [
+            {
+                "name": "NonProd1Subnet",
+                "properties": {
+                    "addressPrefix": "[parameters('subnetMaskForNonprod1')]"
+                }
+            }
+        ],
+        "NonProd2Subnet": [
+            {
+                "name": "NonProd2Subnet",
+                "properties": {
+                    "addressPrefix": "[parameters('subnetMaskForNonprod2')]"
                 }
             }
         ],
@@ -251,7 +299,33 @@
                                                         "[parameters('addressPrefix1')]"
                                                     ]
                                                 }
-                                            }
+                                            },
+                                            "resources": [
+                                                {
+                                                  "type": "subnets",
+                                                  "apiVersion": "2020-05-01",
+                                                  "location": "[parameters('location')]",
+                                                  "name": "Prod1Subnet",
+                                                  "dependsOn": [
+                                                    "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'))]"
+                                                  ],
+                                                  "properties": {
+                                                    "addressPrefix": "[parameters('subnetMaskForProd1')]"
+                                                  }
+                                                },
+                                                {
+                                                    "type": "subnets",
+                                                    "apiVersion": "2020-05-01",
+                                                    "location": "[parameters('location')]",
+                                                    "name": "Prod2Subnet",
+                                                    "dependsOn": [
+                                                      "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'))]"
+                                                    ],
+                                                    "properties": {
+                                                      "addressPrefix": "[parameters('subnetMaskForProd2')]"
+                                                    }
+                                                  }
+                                              ]
                                         },
                                         {
                                             "name": "[variables('spoke2Name')]",
@@ -264,7 +338,33 @@
                                                         "[parameters('addressPrefix2')]"
                                                     ]
                                                 }
-                                            }
+                                            },
+                                            "resources": [
+                                                {
+                                                  "type": "subnets",
+                                                  "apiVersion": "2020-05-01",
+                                                  "location": "[parameters('location')]",
+                                                  "name": "NonProd1Subnet",
+                                                  "dependsOn": [
+                                                    "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'))]"
+                                                  ],
+                                                  "properties": {
+                                                    "addressPrefix": "[parameters('subnetMaskForNonprod1')]"
+                                                  }
+                                                },
+                                                {
+                                                    "type": "subnets",
+                                                    "apiVersion": "2020-05-01",
+                                                    "location": "[parameters('location')]",
+                                                    "name": "NonProd2Subnet",
+                                                    "dependsOn": [
+                                                      "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'))]"
+                                                    ],
+                                                    "properties": {
+                                                      "addressPrefix": "[parameters('subnetMaskForNonprod2')]"
+                                                    }
+                                                  }
+                                              ]
                                         },
                                         {
                                             "condition": "[and(equals(parameters('enableVpnGw'), 'Yes'), not(empty(parameters('subnetMaskForGw'))))]",
