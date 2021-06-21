@@ -322,6 +322,22 @@
         "subnetMaskForIdent": {
             "type": "string",
             "defaultValue": ""
+        },
+        "subnetMaskForProd1": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "subnetMaskForProd2": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "subnetMaskForNonprod1": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "subnetMaskForNonprod2": {
+            "type": "string",
+            "defaultValue": ""
         }
     },
     "variables": {
@@ -759,6 +775,18 @@
                         "value": "[parameters('subnetMaskForDMZ')]"
                     },
                     "subnetMaskForIdent": {
+                        "value": "[parameters('subnetMaskForIdent')]"
+                    },
+                    "subnetMaskForProd1": {
+                        "value": "[parameters('subnetMaskForIdent')]"
+                    },
+                    "subnetMaskForProd2": {
+                        "value": "[parameters('subnetMaskForIdent')]"
+                    },
+                    "subnetMaskForNonprod1": {
+                        "value": "[parameters('subnetMaskForIdent')]"
+                    },
+                    "subnetMaskForNonprod2": {
                         "value": "[parameters('subnetMaskForIdent')]"
                     }
                 }
