@@ -498,7 +498,7 @@
                     {
                         "name": "esAddressVpnOrEr",
                         "type": "Microsoft.Common.TextBox",
-                        "label": "Subnet for shared-services VPN Gateway",
+                        "label": "Subnet for shared-services vnet VPN Gateway",
                         "toolTip": "Provide address prefix in CIDR notation (e.g 10.100.1.0/24)",
                         "defaultValue": "172.31.0.0/27",
                         "visible": "[equals(steps('esConnectivityGoalState').esHub, 'Yes')]",
@@ -510,7 +510,7 @@
                     {
                         "name": "esAddressDMZ",
                         "type": "Microsoft.Common.TextBox",
-                        "label": "Subnet for shared-services DMZ subnet",
+                        "label": "Subnet for shared-services vnet DMZ subnet",
                         "toolTip": "Provide address prefix in CIDR notation (e.g 10.100.1.0/24)",
                         "defaultValue": "172.31.1.0/24",
                         "visible": "[equals(steps('esConnectivityGoalState').esHub, 'Yes')]",
@@ -522,7 +522,7 @@
                     {
                         "name": "esAddressIdent",
                         "type": "Microsoft.Common.TextBox",
-                        "label": "Subnet for shared-services Identity subnet",
+                        "label": "Subnet for shared-services vnet Identity subnet",
                         "toolTip": "Provide address prefix in CIDR notation (e.g 10.100.1.0/24)",
                         "defaultValue": "172.31.2.0/24",
                         "visible": "[equals(steps('esConnectivityGoalState').esHub, 'Yes')]",
@@ -535,7 +535,7 @@
                     {
                         "name": "esAddressProd1",
                         "type": "Microsoft.Common.TextBox",
-                        "label": "Subnet for prod prod1 subnet",
+                        "label": "Subnet for prod vnet prod1 subnet",
                         "toolTip": "Provide address prefix in CIDR notation (e.g 10.100.1.0/24)",
                         "defaultValue": "172.31.16.0/24",
                         "visible": "[equals(steps('esConnectivityGoalState').esHub, 'Yes')]",
@@ -547,7 +547,7 @@
                     {
                         "name": "esAddressProd2",
                         "type": "Microsoft.Common.TextBox",
-                        "label": "Subnet for prod prod2 subnet",
+                        "label": "Subnet for prod vnet prod2 subnet",
                         "toolTip": "Provide address prefix in CIDR notation (e.g 10.100.1.0/24)",
                         "defaultValue": "172.31.17.0/24",
                         "visible": "[equals(steps('esConnectivityGoalState').esHub, 'Yes')]",
@@ -559,7 +559,7 @@
                     {
                         "name": "esAddressNonprod1",
                         "type": "Microsoft.Common.TextBox",
-                        "label": "Subnet for non-prod non-prod1 subnet",
+                        "label": "Subnet for non-prod vnet non-prod1 subnet",
                         "toolTip": "Provide address prefix in CIDR notation (e.g 10.100.1.0/24)",
                         "defaultValue": "172.31.32.0/24",
                         "visible": "[equals(steps('esConnectivityGoalState').esHub, 'Yes')]",
@@ -571,7 +571,7 @@
                     {
                         "name": "esAddressNonprod2",
                         "type": "Microsoft.Common.TextBox",
-                        "label": "Subnet for non-prod non-prod2 subnet",
+                        "label": "Subnet for non-prod vnet non-prod2 subnet",
                         "toolTip": "Provide address prefix in CIDR notation (e.g 10.100.1.0/24)",
                         "defaultValue": "172.31.33.0/24",
                         "visible": "[equals(steps('esConnectivityGoalState').esHub, 'Yes')]",
