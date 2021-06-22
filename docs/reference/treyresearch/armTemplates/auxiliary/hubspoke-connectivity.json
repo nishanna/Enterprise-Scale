@@ -197,7 +197,10 @@
                     "addressPrefix": "[parameters('subnetMaskForAzFw')]"
                 }
             }
-        ]
+        ],
+        "gatewaySubnetName": "GatewaySubnet",
+        "dmzSubnetName": "DMZSubnet",
+        "identitySubnetName": "IdentSubnet"
     },
     "resources": [
         {
@@ -252,7 +255,7 @@
                                             "subnets": [
                                                 {
                                                     
-                                                    "name": "GatewaySubnet",
+                                                    "name": "[variables('gatewaySubnetName')]",
                                                     
                                                     "properties": {
                                                       "addressPrefix": "[parameters('subnetMaskForGw')]"
@@ -260,7 +263,7 @@
                                                 },
                                                 {
                                                   
-                                                  "name": "DMZSubnet",
+                                                  "name": "[variables('dmzSubnetName')]",
                                                   
                                                   "properties": {
                                                     "addressPrefix": "[parameters('subnetMaskForDMZ')]"
@@ -268,7 +271,7 @@
                                                 },
                                                 {
                                                   
-                                                  "name": "IdentSubnet",
+                                                  "name": "[variables('identitySubnetName')]",
                                                   
                                                   "properties": {
                                                     "addressPrefix": "[parameters('subnetMaskForIdent')]"
