@@ -319,10 +319,7 @@
                                             "location": "[parameters('location')]",
                                             "dependsOn": [
                                                 "[concat('Microsoft.Network/publicIPAddresses/', variables('azVpnGwIpName'))]",
-                                                "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'))]",
-                                                "GatewaySubnet",
-                                                "DMZSubnet",
-                                                "IdentSubnet"
+                                                "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'))]"
 
                                             ],
                                             "properties": {
