@@ -299,40 +299,8 @@
                                                         "[parameters('addressPrefix1')]"
                                                     ]
                                                 }
-                                            },
-                                            "resources": [
-                                                {
-                                                  "type": "subnets",
-                                                  "apiVersion": "2020-05-01",
-                                                  "location": "[parameters('location')]",
-                                                  "name": "Prod1Subnet",
-                                                  "dependsOn": [
-                                                    "[concat('Microsoft.Network/virtualNetworks/', variables('spoke1Name'))]",
-                                                    "GatewaySubnet",
-                                                    "DMZSubnet",
-                                                    "IdentSubnet"
+                                            }
 
-                                                  ],
-                                                  "properties": {
-                                                    "addressPrefix": "[parameters('subnetMaskForProd1')]"
-                                                  }
-                                                },
-                                                {
-                                                    "type": "subnets",
-                                                    "apiVersion": "2020-05-01",
-                                                    "location": "[parameters('location')]",
-                                                    "name": "Prod2Subnet",
-                                                    "dependsOn": [
-                                                      "[concat('Microsoft.Network/virtualNetworks/', variables('spoke1Name'))]",
-                                                      "GatewaySubnet",
-                                                      "DMZSubnet",
-                                                      "IdentSubnet"
-                                                    ],
-                                                    "properties": {
-                                                      "addressPrefix": "[parameters('subnetMaskForProd2')]"
-                                                    }
-                                                  }
-                                              ]
                                         },
                                         {
                                             "name": "[variables('spoke2Name')]",
@@ -345,39 +313,8 @@
                                                         "[parameters('addressPrefix2')]"
                                                     ]
                                                 }
-                                            },
-                                            "resources": [
-                                                {
-                                                  "type": "subnets",
-                                                  "apiVersion": "2020-05-01",
-                                                  "location": "[parameters('location')]",
-                                                  "name": "NonProd1Subnet",
-                                                  "dependsOn": [
-                                                    "[concat('Microsoft.Network/virtualNetworks/', variables('spoke2Name'))]",
-                                                    "GatewaySubnet",
-                                                    "DMZSubnet",
-                                                    "IdentSubnet"
-                                                  ],
-                                                  "properties": {
-                                                    "addressPrefix": "[parameters('subnetMaskForNonprod1')]"
-                                                  }
-                                                },
-                                                {
-                                                    "type": "subnets",
-                                                    "apiVersion": "2020-05-01",
-                                                    "location": "[parameters('location')]",
-                                                    "name": "NonProd2Subnet",
-                                                    "dependsOn": [
-                                                      "[concat('Microsoft.Network/virtualNetworks/', variables('spoke2Name'))]",
-                                                      "GatewaySubnet",
-                                                      "DMZSubnet",
-                                                      "IdentSubnet"
-                                                    ],
-                                                    "properties": {
-                                                      "addressPrefix": "[parameters('subnetMaskForNonprod2')]"
-                                                    }
-                                                  }
-                                              ]
+                                            }
+
                                         },
                                         {
                                             "condition": "[and(equals(parameters('enableVpnGw'), 'Yes'), not(empty(parameters('subnetMaskForGw'))))]",
