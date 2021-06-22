@@ -353,7 +353,10 @@
                                                   "location": "[parameters('location')]",
                                                   "name": "NonProd1Subnet",
                                                   "dependsOn": [
-                                                    "[concat('Microsoft.Network/virtualNetworks/', variables('spoke2Name'))]"
+                                                    "[concat('Microsoft.Network/virtualNetworks/', variables('spoke2Name'))]",
+                                                    "GatewaySubnet",
+                                                    "DMZSubnet",
+                                                    "IdentSubnet"
                                                   ],
                                                   "properties": {
                                                     "addressPrefix": "[parameters('subnetMaskForNonprod1')]"
@@ -365,7 +368,10 @@
                                                     "location": "[parameters('location')]",
                                                     "name": "NonProd2Subnet",
                                                     "dependsOn": [
-                                                      "[concat('Microsoft.Network/virtualNetworks/', variables('spoke2Name'))]"
+                                                      "[concat('Microsoft.Network/virtualNetworks/', variables('spoke2Name'))]",
+                                                      "GatewaySubnet",
+                                                      "DMZSubnet",
+                                                      "IdentSubnet"
                                                     ],
                                                     "properties": {
                                                       "addressPrefix": "[parameters('subnetMaskForNonprod2')]"
