@@ -134,62 +134,7 @@
         "azFwSubnetId": "[concat('/subscriptions/', parameters('connectivitySubscriptionId'), '/resourceGroups/', variables('rgName'),'/providers/Microsoft.Network/virtualNetworks/', variables('hubname'), '/subnets/AzureFirewallSubnet')]",
         "azFwPipId": "[concat('/subscriptions/', parameters('connectivitySubscriptionId'), '/resourceGroups/', variables('rgName'), '/providers/Microsoft.Network/publicIPAddresses/', variables('azFwIpName'))]",
         "resourceDeploymentName": "[take(concat(deployment().name, '-hubspoke'), 64)]",
-        "gwSubnet": [
-            {
-                "name": "GatewaySubnet",
-                "properties": {
-                    "addressPrefix": "[parameters('subnetMaskForGw')]"
-                }
-            }
-        ],
-        "DMZSubnet": [
-            {
-                "name": "DMZSubnet",
-                "properties": {
-                    "addressPrefix": "[parameters('subnetMaskForDMZ')]"
-                }
-            }
-        ],
-        "IdentSubnet": [
-            {
-                "name": "IdentSubnet",
-                "properties": {
-                    "addressPrefix": "[parameters('subnetMaskForIdent')]"
-                }
-            }
-        ],
-        "Prod1Subnet": [
-            {
-                "name": "Prod1Subnet",
-                "properties": {
-                    "addressPrefix": "[parameters('subnetMaskForProd1')]"
-                }
-            }
-        ],
-        "Prod2Subnet": [
-            {
-                "name": "Prod2Subnet",
-                "properties": {
-                    "addressPrefix": "[parameters('subnetMaskForProd2')]"
-                }
-            }
-        ],
-        "NonProd1Subnet": [
-            {
-                "name": "NonProd1Subnet",
-                "properties": {
-                    "addressPrefix": "[parameters('subnetMaskForNonprod1')]"
-                }
-            }
-        ],
-        "NonProd2Subnet": [
-            {
-                "name": "NonProd2Subnet",
-                "properties": {
-                    "addressPrefix": "[parameters('subnetMaskForNonprod2')]"
-                }
-            }
-        ],
+
         "fwSubnet": [
             {
                 "name": "AzureFirewallSubnet",
