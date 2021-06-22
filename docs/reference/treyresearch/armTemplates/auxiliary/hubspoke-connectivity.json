@@ -291,7 +291,7 @@
                                         {
                                             "name": "[variables('spoke1Name')]",
                                             "type": "Microsoft.Network/virtualNetworks",
-                                            "apiVersion": "2020-04-01",
+                                            "apiVersion": "2020-05-01",
                                             "location": "[parameters('location')]",
                                             "properties": {
                                                 "addressSpace": {
@@ -330,7 +330,7 @@
                                         {
                                             "name": "[variables('spoke2Name')]",
                                             "type": "Microsoft.Network/virtualNetworks",
-                                            "apiVersion": "2020-04-01",
+                                            "apiVersion": "2020-05-01",
                                             "location": "[parameters('location')]",
                                             "properties": {
                                                 "addressSpace": {
