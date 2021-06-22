@@ -778,16 +778,16 @@
                         "value": "[parameters('subnetMaskForIdent')]"
                     },
                     "subnetMaskForProd1": {
-                        "value": "[parameters('subnetMaskForIdent')]"
+                        "value": "[parameters('subnetMaskForProd1')]"
                     },
                     "subnetMaskForProd2": {
-                        "value": "[parameters('subnetMaskForIdent')]"
+                        "value": "[parameters('subnetMaskForProd2')]"
                     },
                     "subnetMaskForNonprod1": {
-                        "value": "[parameters('subnetMaskForIdent')]"
+                        "value": "[parameters('subnetMaskForNonprod1')]"
                     },
                     "subnetMaskForNonprod2": {
-                        "value": "[parameters('subnetMaskForIdent')]"
+                        "value": "[parameters('subnetMaskForNonprod2')]"
                     }
                 }
             }
