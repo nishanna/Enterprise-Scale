@@ -236,8 +236,17 @@
                                                     "addressPrefixes": [
                                                         "[parameters('addressPrefix1')]"
                                                     ]
-                                                }
-                                                
+                                                },
+                                                "subnets": [
+                                                    {
+                                                        
+                                                        "name": "Prod1Subnet",
+                                                        
+                                                        "properties": {
+                                                          "addressPrefix": "172.31.16.0/24"
+                                                        }
+                                                    }
+                                                ]
                                             }
 
                                         },
