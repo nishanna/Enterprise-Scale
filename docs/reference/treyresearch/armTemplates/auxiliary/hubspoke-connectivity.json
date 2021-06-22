@@ -253,7 +253,14 @@
                                                 
                                             
                                             "subnets": [
-                                                
+                                                {
+                                                    
+                                                    "name": "[variables('gatewaySubnetName')]",
+                                                    
+                                                    "properties": {
+                                                      "addressPrefix": "[parameters('subnetMaskForGw')]"
+                                                    }
+                                                },
                                                 {
                                                   
                                                   "name": "[variables('dmzSubnetName')]",
@@ -283,7 +290,17 @@
                                                     "addressPrefixes": [
                                                         "[parameters('addressPrefix1')]"
                                                     ]
-                                                }
+                                                },
+                                                "subnets": [
+                                                    {
+                                                        
+                                                        "name": "Prod1Subnet",
+                                                        
+                                                        "properties": {
+                                                          "addressPrefix": "[parameters('subnetMaskForProd1')]"
+                                                        }
+                                                    }
+                                                ]
                                             }
 
                                         },
