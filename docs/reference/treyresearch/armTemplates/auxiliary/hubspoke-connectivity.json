@@ -253,14 +253,7 @@
                                                 
                                             
                                             "subnets": [
-                                                {
-                                                    
-                                                    "name": "[variables('gatewaySubnetName')]",
-                                                    
-                                                    "properties": {
-                                                      "addressPrefix": "[parameters('subnetMaskForGw')]"
-                                                    }
-                                                },
+                                                
                                                 {
                                                   
                                                   "name": "[variables('dmzSubnetName')]",
