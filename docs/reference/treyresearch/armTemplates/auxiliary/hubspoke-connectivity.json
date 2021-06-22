@@ -240,7 +240,7 @@
                                                 "subnets": [
                                                     {
                                                         
-                                                        "name": "Prod1Subnet",
+                                                        "name": "[variables('Prod1SubnetName')]",
                                                         
                                                         "properties": {
                                                           "addressPrefix": "172.31.16.0/24"
