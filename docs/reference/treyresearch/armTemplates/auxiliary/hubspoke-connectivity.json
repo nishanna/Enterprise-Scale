@@ -200,7 +200,8 @@
         ],
         "gatewaySubnetName": "GatewaySubnet",
         "dmzSubnetName": "DMZSubnet",
-        "identitySubnetName": "IdentSubnet"
+        "identitySubnetName": "IdentSubnet",
+        "Prod1SubnetName": "Prod1Subnet"
     },
     "resources": [
         {
@@ -294,7 +295,7 @@
                                                 "subnets": [
                                                     {
                                                         
-                                                        "name": "Prod1Subnet",
+                                                        "name": "[variables('Prod1SubnetName')]",
                                                         
                                                         "properties": {
                                                           "addressPrefix": "[parameters('subnetMaskForProd1')]"
