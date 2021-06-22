@@ -236,17 +236,8 @@
                                                     "addressPrefixes": [
                                                         "[parameters('addressPrefix1')]"
                                                     ]
-                                                },
-                                                "subnets": [
-                                                    {
-                                                        
-                                                        "name": "[variables('Prod1SubnetName')]",
-                                                        
-                                                        "properties": {
-                                                          "addressPrefix": "[parameters('subnetMaskForProd1')]"
-                                                        }
-                                                    }
-                                                ]
+                                                }
+                                                
                                             }
 
                                         },
